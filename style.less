@@ -1,0 +1,439 @@
+/*
+
+Theme Name: 
+Theme URI: 
+Description:
+Version:
+Author: 
+
+*/	
+
+
+/* global mixins */
+
+.clip{
+	-webkit-background-clip: padding-box; 
+	-moz-background-clip: padding; 
+	-o-background-clip: padding; 
+	background-clip: padding-box; 
+}
+
+.round(@radius: 5px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	-o-border-radius: @radius;
+	border-radius: @radius;
+}
+
+.box-sizing(@sizing: border-box){
+	-webkit-box-sizing: @sizing;
+	-moz-box-sizing: @sizing;
+	box-sizing: @sizing;
+}
+
+.scale(@scale: 1.5, @x: 0, @y: 0){
+	-webkit-transform: scale(@scale);
+	-webkit-transform-origin: @x @y;
+	-moz-transform: scale(@scale);
+	-moz-transform-origin: @x @y;
+	-o-transform: scale(@scale);
+	-o-transform-origin: @x @y;
+	-ms-transform: scale(@scale);
+	-ms-transform-origin: @x @y;
+	transform: scale(@scale);
+	transform-origin: @x @y;
+}
+
+.shadow(@depth: 0 2px 4px rgba(0,0,0,.3)){
+	-webkit-box-shadow: @depth;
+	-moz-box-shadow: @depth;
+	-o-box-shadow: @depth;
+	box-shadow: @depth;
+}
+
+.rotate(@deg: rotate(9deg)){	
+	-webkit-transform: @deg;
+	-moz-transform: @deg;
+	-ms-transform: @deg;
+	-o-transform: @deg;
+	transform: @deg;
+}
+
+.bgsize(@size: 100% 100%){
+	-webkit-background-size: @size; 
+	-moz-background-size: @size;
+	-o-background-size: @size;
+	background-size: @size;
+}
+
+.gradient(@start: #eee, @end: #777) {	
+	background: @start;
+	background-image: -moz-linear-gradient(top, @start, @end); 
+	background-image: -ms-linear-gradient(top, @start, @end); 
+	background-image: -o-linear-gradient(top, @start, @end);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(@start), to(@end));
+	background-image: -webkit-linear-gradient(top, @start, @end);
+	background-image: linear-gradient(top, @start, @end);
+}
+
+.gradient-circle(@h: center, @v: center, @shape: circle, @size: contain, @start: #ddd, @finish: #333, @stop: 100%) {
+	background-color: @start;
+	background-image: -moz-radial-gradient(@h @v, @shape @size, @start, @end @stop);
+	background-image: -webkit-radial-gradient(@h @v, @shape @size, @start, @end @stop);
+	background-image: -o-radial-gradient(@h @v, @shape @size, @start, @end @stop);
+	background-image: -ms-radial-gradient(@h @v, @shape @size, @start, @end @stop);
+	background-image: radial-gradient(@h @v, @shape @size, @start, @end @stop);
+}
+
+.transition(@who: all, @length: .5s, @how: ease-out){
+	-webkit-transition: @who @length @how;
+	-moz-transition: @who @length @how;
+	-ms-transition: @who @length @how;
+	-o-transition: @who @length @how;
+	transition: @who @length @how;
+}
+
+.columns(@count: 2, @width: 200px, @gap: 20px){
+	-moz-column-count: @count;
+	-moz-column-gap: @gap;
+	-webkit-column-count: @count;
+	-webkit-column-gap: @gap;
+	column-count: @count;
+	column-gap: @gap;
+}
+
+
+
+/* handy shortcuts */
+.true(@height: 20px){
+	height: @height;
+	line-height: @height;
+}
+
+.indent(@indent: -9999em){
+	text-indent: @indent;
+}
+
+.size(@width: 20px, @height:20px){
+	width: @width;
+	height: @height;
+}
+
+.clear{/* for use on :after */
+	content: " "; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;	
+}
+
+
+
+/* global color variables */
+
+@link: #777;
+
+@heading: #333;
+
+@border: #ccc;
+
+
+
+/* global layout */
+
+
+body {
+	font-size: 14px;
+	margin: 0px;
+	text-align: center;
+	background: #ccc;
+	color: #333;
+	font-family: Helvetica, Arial, sans-serif;
+	padding: 40px 0;
+	line-height: 1.5em;
+}
+
+p, ul, ol, dl{
+	padding-bottom: 1.5em;
+}
+
+strong{
+	font-weight: bold;
+}
+
+a{
+	color: #777;
+	text-decoration: underline;
+}
+
+h1{
+	line-height: 1em;
+	padding: 20px 0 32px;
+	font-size: 32px;
+	text-transform: uppercase;
+	font-weight: bold;
+
+	em{
+		display: block;
+		color: #777;
+		font-size: 22px;
+	}
+}
+
+h2{
+	font-size: 26px;
+	font-weight: bold;
+	border-top: 1px solid #ddd;
+	padding: 8px 0;
+}
+
+h3{
+	font-weight: bold;
+}
+
+h4{
+	font-weight: bold;
+	color: #999;
+}
+
+.time-frame{
+	font-style: italic;
+}
+
+article{
+	margin-bottom: 1.5em;
+}
+
+
+#resume{
+	position: relative;
+	text-align: left;
+	max-width: 900px;
+	margin: auto;
+	padding: 12px 18px;
+	border: 8px solid #eee;
+	.shadow(0 0 1px #333);
+	background: #fff;
+}
+	
+	#about-topher, .vcard{
+		padding-top: 18px;
+		border-top: 1px solid #ddd;
+
+		img{
+			display: none;
+		}
+	}
+
+	.vcard{
+		padding: 12px;
+		background: #eee;
+		border-bottom: 1px solid #ddd;
+		margin-bottom: 18px;
+		.fn + span{
+			display: block;
+		}
+	}
+
+	#work-experience{
+		ul li{
+			list-style: outside square;
+			margin: 0 0 .5em 1.5em;
+		}
+	}
+
+	.client-list{
+		li{
+			position: relative;
+			margin-bottom: 1.5em;
+			.box-sizing;
+			padding: 5px;
+			height: 130px;
+			border: 1px solid #ddd;	
+			line-height: 130px;
+			text-align: center;
+		}
+
+		img{
+			position: relative;
+			margin: auto;
+			display: block;
+			max-height: 120px;
+			vertical-align: center;
+		}
+	}
+
+
+	.work-samples{
+		li{
+			overflow: hidden;
+			margin-bottom: 1.5em;	
+		}
+
+		li > a{
+			display: block;			
+			.box-sizing;
+			padding: 5px;
+			border: 1px solid #ddd;	
+		}
+
+		img{
+			width: 100%;
+			display: block;
+		}
+
+		strong{
+			display: block;
+		}
+
+		em{
+			font-style: italic;
+			font-size: 12px;
+
+			a{
+				font-style: normal;
+				font-size: 14px;
+			}
+		}
+	}
+
+
+	#extended-bio p{
+		font-size: 12px;
+		padding-bottom: .5em;
+	}
+
+
+	#footer{
+		border-top: 1px solid #ccc;
+		font-size: 11px;
+		padding: 4px 0;
+
+		strong{
+			display: block;
+		}
+	}
+
+
+
+@media only screen and (min-width: 600px) {
+
+	h2{
+		padding: 18px 0;
+	}
+
+	#about-topher img{
+		display: block;
+		float: left;
+		width: 158px;
+		height: 158px;
+		margin-right: 25px;
+		border: 2px solid #fff;
+		.shadow(0 0 1px #111);
+	}
+
+	.vcard{
+		clear: both;
+	}
+
+	.client-list, .work-samples{
+		position: relative;
+		overflow: hidden;
+		padding-bottom:0;
+
+		img{
+			width: 100%;
+		}
+
+		li{
+			float: left;
+			width: 48%;
+			overflow: hidden;
+
+			&:nth-of-type(odd){
+				clear: both;
+			}
+
+			&:nth-of-type(even){
+				float: right;
+			}
+		}
+	}
+
+	#extended-bio{
+		ul{
+			position: relative;
+			overflow: hidden;
+
+			li{
+				float: left;
+				width: 33.3%;
+			}
+		}
+	}
+	
+
+	#work-experience li{
+		width: 85%;
+	}
+
+}
+
+
+
+
+
+@media only screen and (min-width: 800px) {
+
+	#header{
+		overflow: hidden;
+	}
+
+	#about-topher{
+		float: left;
+		width: 66%;
+	}
+
+	.github{
+		padding-top: 14px;
+	}
+
+	.vcard{
+		float: right;
+		width: 30%;
+		clear: none;
+		.box-sizing;
+		padding-top: 18px;
+	}
+
+	#bio{
+		clear: both;
+		float: left;
+		width: 66%;
+	}
+
+
+	#extended-bio{
+		float: right;
+		width: 30%;
+
+		ul{
+			position: relative;
+			overflow: hidden;
+
+			li{
+				float: none;
+				width: 100%;
+			}
+		}
+	}
+
+	#education p:first-of-type{
+		padding-bottom:0;
+	}
+
+	#footer{
+		clear: both;
+	}
+
+}
