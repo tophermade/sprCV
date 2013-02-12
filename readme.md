@@ -2,7 +2,7 @@
 A clean and simple, fully responsive CV
 
 * Demo: [http://sprresponsive.com/cv/](http://sprresponsive.com/cv/)
-* Homepage: [http://sprresponsive.com/sprcv/](http://sprresponsive.com/sprinvoice/)
+* Homepage: [http://sprresponsive.com/sprcv-resume-template/](http://sprresponsive.com/sprcv-resume-template/)
 * Twitter: [@tophermade](http://twitter.com/tophermade)
 
 ### Usage
