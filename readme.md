@@ -1,6 +1,7 @@
 # sprCV
 A clean and simple, fully responsive CV
 
+* Demo: [http://sprresponsive.com/cv/](http://sprresponsive.com/cv/)
 * Homepage: [http://sprresponsive.com/sprcv/](http://sprresponsive.com/sprinvoice/)
 * Twitter: [@tophermade](http://twitter.com/tophermade)
 
